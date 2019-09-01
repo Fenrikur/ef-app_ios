@@ -97,12 +97,18 @@ class EventImpl: Event {
 
     private var observers: [EventObserver] = []
     func add(_ observer: EventObserver) {
+        guard isObserverAlreadyRegistered(observer) == false else { return }
+        
         observers.append(observer)
         provideFavouritedStateToObserver(observer)
     }
     
     func remove(_ observer: EventObserver) {
         observers.removeAll(where: { $0 === observer })
+    }
+    
+    private func isObserverAlreadyRegistered(_ observer: EventObserver) -> Bool {
+        return observers.contains(where: { $0 === observer })
     }
 
     private var isFavourite: Bool {
