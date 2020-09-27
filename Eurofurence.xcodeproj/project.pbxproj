@@ -550,6 +550,7 @@
 		CA8E7EF61FB08E2500F0BF10 /* AppWindowWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8E7EF51FB08E2500F0BF10 /* AppWindowWireframe.swift */; };
 		CA8E7EFA1FB0926E00F0BF10 /* StoryboardTutorialSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8E7EF91FB0926E00F0BF10 /* StoryboardTutorialSceneFactory.swift */; };
 		CA8E7EFC1FB0932700F0BF10 /* StoryboardNewsSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8E7EFB1FB0932700F0BF10 /* StoryboardNewsSceneFactory.swift */; };
+		CA9058D32520D5220064D507 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9058D22520D5220064D507 /* SplitViewController.swift */; };
 		CA91FEC12463269A0065CF86 /* BackgroundFetchServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA91FEC02463269A0065CF86 /* BackgroundFetchServiceTests.swift */; };
 		CA957B601F705AF9004DFD5A /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA957B5E1F705AF9004DFD5A /* MessagesViewController.swift */; };
 		CA987FC822E6389E006338FB /* ActivityFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA987FC722E6389E006338FB /* ActivityFactory.swift */; };
@@ -710,6 +711,8 @@
 		CADABF042118E08D0023C3B6 /* MapContextualContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADABF032118E08D0023C3B6 /* MapContextualContentViewController.swift */; };
 		CAE27B4E1F85611C005FDE39 /* PhoneTutorialModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE27B4D1F85611C005FDE39 /* PhoneTutorialModuleFactory.swift */; };
 		CAE27B501F857A99005FDE39 /* PreloadComponentFactoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE27B4F1F857A99005FDE39 /* PreloadComponentFactoryImpl.swift */; };
+		CAE6AB672520D4C10014CF7A /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6AB662520D4C10014CF7A /* NavigationController.swift */; };
+		CAE6AB6D2520D4D20014CF7A /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE6AB6C2520D4D20014CF7A /* TabBarController.swift */; };
 		CAE8879322690263001464C1 /* LeaveFeedbackActionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE8879222690263001464C1 /* LeaveFeedbackActionViewModel.swift */; };
 		CAEA1042216E1FB400B0C7A6 /* CapturingSignificantTimeChangeAdapterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA52C68420D59A5B009D3A9E /* CapturingSignificantTimeChangeAdapterDelegate.swift */; };
 		CAEA1046216E77DE00B0C7A6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEA1045216E77DE00B0C7A6 /* Theme.swift */; };
@@ -1772,6 +1775,7 @@
 		CA8E7EF51FB08E2500F0BF10 /* AppWindowWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppWindowWireframe.swift; sourceTree = "<group>"; };
 		CA8E7EF91FB0926E00F0BF10 /* StoryboardTutorialSceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardTutorialSceneFactory.swift; sourceTree = "<group>"; };
 		CA8E7EFB1FB0932700F0BF10 /* StoryboardNewsSceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardNewsSceneFactory.swift; sourceTree = "<group>"; };
+		CA9058D22520D5220064D507 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		CA91FEC02463269A0065CF86 /* BackgroundFetchServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundFetchServiceTests.swift; sourceTree = "<group>"; };
 		CA957B5E1F705AF9004DFD5A /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		CA9845C91F2907A800E8821D /* ScreenshotGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotGenerator.swift; sourceTree = "<group>"; };
@@ -1933,6 +1937,8 @@
 		CADABF032118E08D0023C3B6 /* MapContextualContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapContextualContentViewController.swift; sourceTree = "<group>"; };
 		CAE27B4D1F85611C005FDE39 /* PhoneTutorialModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneTutorialModuleFactory.swift; sourceTree = "<group>"; };
 		CAE27B4F1F857A99005FDE39 /* PreloadComponentFactoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadComponentFactoryImpl.swift; sourceTree = "<group>"; };
+		CAE6AB662520D4C10014CF7A /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		CAE6AB6C2520D4D20014CF7A /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		CAE8879222690263001464C1 /* LeaveFeedbackActionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveFeedbackActionViewModel.swift; sourceTree = "<group>"; };
 		CAEA0F7B216D370600B0C7A6 /* FakeHoursDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeHoursDateFormatter.swift; sourceTree = "<group>"; };
 		CAEA1045216E77DE00B0C7A6 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -3488,6 +3494,7 @@
 				CA5EB1A3245F667F0012C277 /* PrincipalContentAggregator.swift */,
 				CA5EB197245F63700012C277 /* PrincipalContentModuleProviding.swift */,
 				CA5EB1A7245F6DBB0012C277 /* Module Adapters */,
+				CAE6AB722520D4E30014CF7A /* View Controllers */,
 			);
 			path = "Principal Content";
 			sourceTree = "<group>";
@@ -5117,6 +5124,16 @@
 				CAA28875245C68F10090B663 /* NavigateFromAnnouncementsToAnnouncement.swift */,
 			);
 			path = Announcements;
+			sourceTree = "<group>";
+		};
+		CAE6AB722520D4E30014CF7A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CAE6AB662520D4C10014CF7A /* NavigationController.swift */,
+				CA9058D22520D5220064D507 /* SplitViewController.swift */,
+				CAE6AB6C2520D4D20014CF7A /* TabBarController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 		CAEA0E9B216BF5DB00B0C7A6 /* Test Doubles */ = {
@@ -7252,6 +7269,7 @@
 				CA33A92E24C5ED8E00377DFB /* NoContentPlaceholderViewController.swift in Sources */,
 				CA36A45E20D8487700EE6537 /* DealersGroupViewModel.swift in Sources */,
 				CAD4F73C245C364F0036ADAF /* ContentRoute.swift in Sources */,
+				CAE6AB6D2520D4D20014CF7A /* TabBarController.swift in Sources */,
 				CAF3C7501F9FC74C0008F027 /* NewsSceneFactory.swift in Sources */,
 				CA0E5207208E700E005259FE /* DealersViewController.swift in Sources */,
 				CA283ABE20EAA67B00F7D195 /* AnnouncementsPresenter.swift in Sources */,
@@ -7426,6 +7444,7 @@
 				CABA43AC1FD5DC68009CB5B0 /* LoginScene.swift in Sources */,
 				CAD04195245DA62B00B86950 /* NewsContentRepresentation.swift in Sources */,
 				CACF1E8220B2E6B400D904B5 /* EventDetailSummaryTableViewCell.swift in Sources */,
+				CAE6AB672520D4C10014CF7A /* NavigationController.swift in Sources */,
 				CAA28870245C64940090B663 /* AnyContentRepresentation.swift in Sources */,
 				CA4D9366245EF346006FA832 /* NSRegularExpression+Extensions.swift in Sources */,
 				CA8E17ED1F817A70003C348C /* PreloadInteractor.swift in Sources */,
@@ -7604,6 +7623,7 @@
 				CAD04197245DA63C00B86950 /* NewsContentRoute.swift in Sources */,
 				CA39851E22C7A94500117249 /* RemoteConfiguration.swift in Sources */,
 				CAA4BA6721EE7AB600DE2C88 /* MessagesComponentFactoryImpl.swift in Sources */,
+				CA9058D32520D5220064D507 /* SplitViewController.swift in Sources */,
 				CA89CBB62080032000570D54 /* NewsComponentHeaderScene.swift in Sources */,
 				CA6375B4208E039100536BE2 /* DealersComponentFactoryImpl.swift in Sources */,
 				CA66C0142124A24900F87AFE /* ReviewPromptAppVersionRepository.swift in Sources */,
