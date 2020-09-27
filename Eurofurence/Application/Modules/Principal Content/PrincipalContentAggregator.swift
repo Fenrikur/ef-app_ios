@@ -9,21 +9,7 @@ public struct PrincipalContentAggregator: PrincipalContentModuleProviding {
     }
     
     public func makePrincipalContentModule() -> UIViewController {
-        let applicationModules = applicationModuleFactories.map({ $0.makeApplicationModuleController() })
-        let navigationControllers = applicationModules.map(NavigationController.init)
-        let splitViewControllers = navigationControllers.map { (navigationController) -> UISplitViewController in
-            let splitViewController = SplitViewController()
-            let noContentPlaceholder = NoContentPlaceholderViewController.fromStoryboard()
-            splitViewController.viewControllers = [navigationController, noContentPlaceholder]
-            splitViewController.tabBarItem = navigationController.tabBarItem
-            
-            return splitViewController
-        }
-        
-        let tabBarController = TabBarController()
-        tabBarController.viewControllers = splitViewControllers
-        
-        return tabBarController
+        return ClassicRootViewController(applicationModuleFactories: applicationModuleFactories)
     }
     
 }
