@@ -552,6 +552,7 @@
 		CA8E7EFC1FB0932700F0BF10 /* StoryboardNewsSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8E7EFB1FB0932700F0BF10 /* StoryboardNewsSceneFactory.swift */; };
 		CA9058D32520D5220064D507 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9058D22520D5220064D507 /* SplitViewController.swift */; };
 		CA9058E12520D5770064D507 /* ClassicRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9058E02520D5770064D507 /* ClassicRootViewController.swift */; };
+		CA9058EB2520D8D20064D507 /* ModernRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9058EA2520D8D20064D507 /* ModernRootViewController.swift */; };
 		CA91FEC12463269A0065CF86 /* BackgroundFetchServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA91FEC02463269A0065CF86 /* BackgroundFetchServiceTests.swift */; };
 		CA957B601F705AF9004DFD5A /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA957B5E1F705AF9004DFD5A /* MessagesViewController.swift */; };
 		CA987FC822E6389E006338FB /* ActivityFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA987FC722E6389E006338FB /* ActivityFactory.swift */; };
@@ -1778,6 +1779,7 @@
 		CA8E7EFB1FB0932700F0BF10 /* StoryboardNewsSceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardNewsSceneFactory.swift; sourceTree = "<group>"; };
 		CA9058D22520D5220064D507 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		CA9058E02520D5770064D507 /* ClassicRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicRootViewController.swift; sourceTree = "<group>"; };
+		CA9058EA2520D8D20064D507 /* ModernRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernRootViewController.swift; sourceTree = "<group>"; };
 		CA91FEC02463269A0065CF86 /* BackgroundFetchServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundFetchServiceTests.swift; sourceTree = "<group>"; };
 		CA957B5E1F705AF9004DFD5A /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		CA9845C91F2907A800E8821D /* ScreenshotGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotGenerator.swift; sourceTree = "<group>"; };
@@ -5132,6 +5134,7 @@
 			isa = PBXGroup;
 			children = (
 				CA9058E02520D5770064D507 /* ClassicRootViewController.swift */,
+				CA9058EA2520D8D20064D507 /* ModernRootViewController.swift */,
 				CAE6AB662520D4C10014CF7A /* NavigationController.swift */,
 				CA9058D22520D5220064D507 /* SplitViewController.swift */,
 				CAE6AB6C2520D4D20014CF7A /* TabBarController.swift */,
@@ -7498,6 +7501,7 @@
 				CAA28898245D6ECA0090B663 /* LoginContentRoute.swift in Sources */,
 				CA00AE7B20D1BF6D00C2FBB0 /* ScheduleDayViewModel.swift in Sources */,
 				CAEAEBFD1FE0043B00C0EE7C /* MessageDetailSceneFactory.swift in Sources */,
+				CA9058EB2520D8D20064D507 /* ModernRootViewController.swift in Sources */,
 				CA6EC47D2051CBB800402894 /* KnowledgeDetailSceneFactory.swift in Sources */,
 				CABA43A11FD57A78009CB5B0 /* PreloadComponentBuilder.swift in Sources */,
 				CA1B6F0D20DB817400ADF414 /* DealerDetailScene.swift in Sources */,

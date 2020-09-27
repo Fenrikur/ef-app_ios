@@ -9,7 +9,11 @@ public struct PrincipalContentAggregator: PrincipalContentModuleProviding {
     }
     
     public func makePrincipalContentModule() -> UIViewController {
-        return ClassicRootViewController(applicationModuleFactories: applicationModuleFactories)
+        if #available(iOS 14.0, *) {
+            return ModernRootViewController(applicationModuleFactories: applicationModuleFactories)
+        } else {
+            return ClassicRootViewController(applicationModuleFactories: applicationModuleFactories)
+        }
     }
     
 }
