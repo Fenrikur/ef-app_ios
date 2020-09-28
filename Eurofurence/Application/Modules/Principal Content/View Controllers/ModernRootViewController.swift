@@ -9,15 +9,6 @@ class ModernRootViewController: UISplitViewController {
         preferredSplitBehavior = .tile
         
         let applicationModules = applicationModuleFactories.map({ $0.makeApplicationModuleController() })
-        let navigationControllers = applicationModules.map(NavigationController.init)
-        let splitViewControllers = navigationControllers.map { (navigationController) -> UISplitViewController in
-            let splitViewController = SplitViewController()
-            let noContentPlaceholder = NoContentPlaceholderViewController.fromStoryboard()
-            splitViewController.viewControllers = [navigationController, noContentPlaceholder]
-            splitViewController.tabBarItem = navigationController.tabBarItem
-            
-            return splitViewController
-        }
         
         let navigationOptions = applicationModules.map({ (viewController) in
             NavigationOption(
@@ -34,8 +25,31 @@ class ModernRootViewController: UISplitViewController {
         setViewController(sidebarNavigationWrapper, for: .primary)
     }
     
+    override func show(_ vc: UIViewController, sender: Any?) {
+        if let masterNavigation = viewController(for: .supplementary) as? UINavigationController {
+            masterNavigation.pushViewController(vc, animated: UIView.areAnimationsEnabled)
+        } else {
+            super.show(vc, sender: sender)
+        }
+    }
+    
+    override func showDetailViewController(_ vc: UIViewController, sender: Any?) {
+        if let detailNavigationController = viewController(for: .secondary) as? UINavigationController {
+            var context = (sender as? DetailPresentationContext) ?? .show
+            if traitCollection.horizontalSizeClass == .compact {
+                context = .show
+            }
+            
+            context.reveal(vc, in: detailNavigationController)
+        } else {
+            let navigationController = NavigationController(rootViewController: vc)
+            setViewController(navigationController, for: .secondary)
+        }
+    }
+    
     private func viewControllerSelected(_ viewController: UIViewController) {
-        
+        setViewController(NavigationController(rootViewController: viewController), for: .supplementary)
+        setViewController(NavigationController(rootViewController: NoContentPlaceholderViewController.fromStoryboard()), for: .secondary)
     }
     
     required init?(coder: NSCoder) {
@@ -84,7 +98,6 @@ class ModernRootViewController: UISplitViewController {
             }
             
             content.imageProperties = imageProperties
-            
             
             backgroundConfiguration = background
             contentConfiguration = content
