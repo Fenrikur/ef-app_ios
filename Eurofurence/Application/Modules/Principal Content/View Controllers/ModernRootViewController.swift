@@ -20,6 +20,7 @@ class ModernRootViewController: UISplitViewController {
         setViewController(sidebarNavigationWrapper, for: .primary)
         
         showNavigationOption(navigationOptions.first.unsafelyUnwrapped)
+        show(.primary)
     }
     
     override func show(_ vc: UIViewController, sender: Any?) {
