@@ -74,6 +74,8 @@ class ModernRootViewController: UISplitViewController {
         
         override func viewDidLoad() {
             super.viewDidLoad()
+            
+            collectionView.contentInset = UIEdgeInsets(top: 14, left: 0, bottom: 14, right: 0)
             navigationItem.title = "Eurofurence"
         }
         
