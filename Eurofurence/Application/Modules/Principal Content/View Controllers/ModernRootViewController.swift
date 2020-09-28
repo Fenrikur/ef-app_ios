@@ -6,23 +6,20 @@ class ModernRootViewController: UISplitViewController {
     init(applicationModuleFactories: [ApplicationModuleFactory]) {
         super.init(style: .tripleColumn)
         
+        preferredDisplayMode = .allVisible
         preferredSplitBehavior = .tile
         
         let applicationModules = applicationModuleFactories.map({ $0.makeApplicationModuleController() })
         
         let navigationOptions = applicationModules.map({ (viewController) in
-            NavigationOption(
-                title: viewController.tabBarItem.title.unsafelyUnwrapped,
-                image: viewController.tabBarItem.image.unsafelyUnwrapped,
-                selectionHandler: {
-                    self.viewControllerSelected(viewController)
-                }
-            )
+            NavigationOption(viewController: viewController, selectionHandler: self.showNavigationOption)
         })
         
         let sidebarViewController = SidebarViewController(options: navigationOptions)
         let sidebarNavigationWrapper = NavigationController(rootViewController: sidebarViewController)
         setViewController(sidebarNavigationWrapper, for: .primary)
+        
+        showNavigationOption(navigationOptions.first.unsafelyUnwrapped)
     }
     
     override func show(_ vc: UIViewController, sender: Any?) {
@@ -47,6 +44,10 @@ class ModernRootViewController: UISplitViewController {
         }
     }
     
+    private func showNavigationOption(_ item: NavigationOption) {
+        viewControllerSelected(item.viewController)
+    }
+    
     private func viewControllerSelected(_ viewController: UIViewController) {
         setViewController(NavigationController(rootViewController: viewController), for: .supplementary)
         setViewController(NavigationController(rootViewController: NoContentPlaceholderViewController.fromStoryboard()), for: .secondary)
@@ -58,9 +59,21 @@ class ModernRootViewController: UISplitViewController {
     
     private struct NavigationOption {
         
+        var viewController: UIViewController
         var title: String
         var image: UIImage
-        var selectionHandler: () -> Void
+        private let selectionHandler: (NavigationOption) -> Void
+        
+        init(viewController: UIViewController, selectionHandler: @escaping (NavigationOption) -> Void) {
+            self.viewController = viewController
+            title = viewController.tabBarItem.title.unsafelyUnwrapped
+            image = viewController.tabBarItem.image.unsafelyUnwrapped
+            self.selectionHandler = selectionHandler
+        }
+        
+        func select() {
+            selectionHandler(self)
+        }
         
     }
     
@@ -150,7 +163,7 @@ class ModernRootViewController: UISplitViewController {
         
         override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             let option = options[indexPath.item]
-            option.selectionHandler()
+            option.select()
         }
         
     }
