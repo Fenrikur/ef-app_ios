@@ -65,21 +65,29 @@ class ModernRootViewController: UISplitViewController {
             
             guard let navigationOption = navigationOption else { return }
             
-            var configuration = UIListContentConfiguration.sidebarCell().updated(for: state)
-            configuration.text = navigationOption.title
-            configuration.image = navigationOption.image
+            var content = UIListContentConfiguration.sidebarCell().updated(for: state)
+            content.text = navigationOption.title
+            content.image = navigationOption.image
             
-            var imageProperties = configuration.imageProperties
+            var imageProperties = content.imageProperties
             imageProperties.tintColor = .unselectedTabBarItem
             
-            if state.isHighlighted || state.isSelected {
+            var background = UIBackgroundConfiguration.listSidebarCell()
+            
+            if state.isSelected {
                 imageProperties.tintColor = .white
+                background.backgroundColor = .pantone330U_45
             }
             
-            configuration.imageProperties = imageProperties
+            if state.isHighlighted {
+                background.backgroundColor = .pantone330U_13
+            }
             
-            backgroundConfiguration = UIBackgroundConfiguration.listSidebarCell()
-            contentConfiguration = configuration
+            content.imageProperties = imageProperties
+            
+            
+            backgroundConfiguration = background
+            contentConfiguration = content
         }
         
     }
