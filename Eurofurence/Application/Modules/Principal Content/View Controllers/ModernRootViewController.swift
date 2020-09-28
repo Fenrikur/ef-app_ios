@@ -71,8 +71,14 @@ class ModernRootViewController: UISplitViewController {
             
             var imageProperties = configuration.imageProperties
             imageProperties.tintColor = .unselectedTabBarItem
+            
+            if state.isHighlighted || state.isSelected {
+                imageProperties.tintColor = .white
+            }
+            
             configuration.imageProperties = imageProperties
             
+            backgroundConfiguration = UIBackgroundConfiguration.listSidebarCell()
             contentConfiguration = configuration
         }
         
