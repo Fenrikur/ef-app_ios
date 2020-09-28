@@ -50,6 +50,34 @@ class ModernRootViewController: UISplitViewController {
         
     }
     
+    private class SidebarCell: UICollectionViewListCell {
+        
+        var navigationOption: NavigationOption? {
+            didSet {
+                setNeedsUpdateConfiguration()
+            }
+        }
+        
+        override func updateConfiguration(using state: UICellConfigurationState) {
+            defer {
+                super.updateConfiguration(using: state)
+            }
+            
+            guard let navigationOption = navigationOption else { return }
+            
+            var configuration = UIListContentConfiguration.sidebarCell().updated(for: state)
+            configuration.text = navigationOption.title
+            configuration.image = navigationOption.image
+            
+            var imageProperties = configuration.imageProperties
+            imageProperties.tintColor = .unselectedTabBarItem
+            configuration.imageProperties = imageProperties
+            
+            contentConfiguration = configuration
+        }
+        
+    }
+    
     private class SidebarViewController: UICollectionViewController {
         
         private let options: [NavigationOption]
@@ -65,7 +93,7 @@ class ModernRootViewController: UISplitViewController {
             
             super.init(collectionViewLayout: layout)
             
-            collectionView.register(UICollectionViewListCell.self, forCellWithReuseIdentifier: cellIdentifier)
+            collectionView.register(SidebarCell.self, forCellWithReuseIdentifier: cellIdentifier)
         }
         
         required init?(coder: NSCoder) {
@@ -85,18 +113,11 @@ class ModernRootViewController: UISplitViewController {
         
         override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
-            let listCell = unsafeDowncast(cell, to: UICollectionViewListCell.self)
+            let listCell = unsafeDowncast(cell, to: SidebarCell.self)
             
             let option = options[indexPath.item]
-            var configuration = UIListContentConfiguration.sidebarCell()
-            configuration.text = option.title
-            configuration.image = option.image
+            listCell.navigationOption = option
             
-            var imageProperties = configuration.imageProperties
-            imageProperties.tintColor = .unselectedTabBarItem
-            configuration.imageProperties = imageProperties
-            
-            listCell.contentConfiguration = configuration
             return listCell
         }
         
