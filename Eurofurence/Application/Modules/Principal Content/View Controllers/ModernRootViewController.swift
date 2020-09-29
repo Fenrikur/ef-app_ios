@@ -8,6 +8,7 @@ class ModernRootViewController: UISplitViewController {
         
         preferredDisplayMode = .allVisible
         preferredSplitBehavior = .tile
+        primaryBackgroundStyle = .sidebar
         
         let applicationModules = applicationModuleFactories.map({ $0.makeApplicationModuleController() })
         
