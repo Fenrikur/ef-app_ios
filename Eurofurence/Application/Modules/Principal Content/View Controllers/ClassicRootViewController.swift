@@ -10,7 +10,8 @@ class ClassicRootViewController: TabBarController {
         let splitViewControllers = navigationControllers.map { (navigationController) -> UISplitViewController in
             let splitViewController = SplitViewController()
             let noContentPlaceholder = NoContentPlaceholderViewController.fromStoryboard()
-            splitViewController.viewControllers = [navigationController, noContentPlaceholder]
+            let noContentNavigation = UINavigationController(rootViewController: noContentPlaceholder)
+            splitViewController.viewControllers = [navigationController, noContentNavigation]
             splitViewController.tabBarItem = navigationController.tabBarItem
             
             return splitViewController
