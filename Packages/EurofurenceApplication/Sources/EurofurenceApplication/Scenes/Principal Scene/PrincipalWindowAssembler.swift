@@ -1,19 +1,34 @@
 import ComponentBase
 import ContentController
 import DealersJourney
+import EurofurenceApplicationSession
 import EurofurenceModel
 import EventsJourney
 import KnowledgeJourney
 import os
 import UIKit
+import URLContent
 
-struct PrincipalWindowAssembler {
+struct PrincipalWindowAssembler: WindowScene {
     
     private static let log = OSLog(subsystem: "org.eurofurence.EurofurenceApplication", category: "Principal Window")
     
     private let router: ContentRouter
     private let contentWireframe: WindowContentWireframe
     private let modalWireframe: WindowModalWireframe
+    
+    func resume(_ activity: NSUserActivity) {
+        let activityDescription = SystemActivityDescription(userActivity: activity)
+        let content = UserActivityContentRepresentation(activity: activityDescription)
+        try? router.route(content)
+    }
+    
+    @available(iOS 13.0, *)
+    func open(URLContexts: Set<UIOpenURLContext>) {
+        let activityDescription = URLContextActivityDescription(URLContexts: URLContexts)
+        let content = UserActivityContentRepresentation(activity: activityDescription)
+        try? router.route(content)
+    }
     
     func route<T>(_ content: T) where T: ContentRepresentation {
         do {

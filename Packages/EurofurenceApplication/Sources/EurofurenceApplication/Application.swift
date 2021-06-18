@@ -50,16 +50,16 @@ public class Application {
     
     public static func resume(activity: NSUserActivity) {
         let activityDescription = SystemActivityDescription(userActivity: activity)
-        resume(activityDescription: activityDescription)
+        resumeWithinPrincipalScene(activityDescription: activityDescription)
     }
     
     @available(iOS 13.0, *)
     public static func open(URLContexts: Set<UIOpenURLContext>) {
         let activityDescription = URLContextActivityDescription(URLContexts: URLContexts)
-        resume(activityDescription: activityDescription)
+        resumeWithinPrincipalScene(activityDescription: activityDescription)
     }
     
-    private static func resume(activityDescription: ActivityDescription) {
+    private static func resumeWithinPrincipalScene(activityDescription: ActivityDescription) {
         let contentRepresentation = UserActivityContentRepresentation(activity: activityDescription)
         instance.principalWindowController?.route(contentRepresentation)
     }
@@ -98,14 +98,18 @@ public class Application {
         )
     }
     
-    public func configurePrincipalScene(window: UIWindow) {
-        principalWindowController = PrincipalWindowAssembler(
+    public func configurePrincipalScene(window: UIWindow) -> WindowScene {
+        let principalWindowController = PrincipalWindowAssembler(
             dependencies: dependencies,
             window: window,
             services: session.services,
             repositories: session.repositories,
             urlOpener: AppURLOpener.shared
         )
+        
+        self.principalWindowController = principalWindowController
+        
+        return principalWindowController
     }
 
 }

@@ -1,5 +1,6 @@
 import ComponentBase
 import EurofurenceApplication
+import EurofurenceApplicationSession
 import FirebaseCore
 import UIKit
 
@@ -9,6 +10,7 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: UIApplicationDelegate
 
 	public var window: UIWindow?
+    private var principalWindowScene: WindowScene?
 
     public func application(
         _ application: UIApplication,
@@ -52,7 +54,7 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
         continue userActivity: NSUserActivity,
         restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void
     ) -> Bool {
-        Application.resume(activity: userActivity)
+        principalWindowScene?.resume(userActivity)
         return true
     }
     
@@ -86,7 +88,7 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
             
         } else {
             let window = UIWindow()
-            Application.instance.configurePrincipalScene(window: window)
+            principalWindowScene = Application.instance.configurePrincipalScene(window: window)
             window.installDebugModule()
             window.makeKeyAndVisible()
             

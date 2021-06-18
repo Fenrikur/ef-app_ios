@@ -1,10 +1,12 @@
 import EurofurenceApplication
+import EurofurenceApplicationSession
 import UIKit
 
 @available(iOS 13.0, *)
 class PrincipalWindowSceneDelegate: NSObject, UIWindowSceneDelegate {
     
     var window: UIWindow?
+    private var principalWindowScene: WindowScene?
     
     func scene(
         _ scene: UIScene,
@@ -16,17 +18,6 @@ class PrincipalWindowSceneDelegate: NSObject, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         self.window = window
         
-        Application.instance.configurePrincipalScene(window: window)
-        
-        if let userActivity = connectionOptions.userActivities.first {
-            Application.resume(activity: userActivity)
-        }
-        
-        let URLContexts = connectionOptions.urlContexts
-        if URLContexts.isEmpty == false {
-            Application.open(URLContexts: URLContexts)
-        }
-        
 #if targetEnvironment(macCatalyst)
         if let titlebar = windowScene.titlebar {
             titlebar.titleVisibility = .hidden
@@ -34,16 +25,29 @@ class PrincipalWindowSceneDelegate: NSObject, UIWindowSceneDelegate {
         }
 #endif
         
+        let principalWindowScene = Application.instance.configurePrincipalScene(window: window)
+        self.principalWindowScene = principalWindowScene
+        
+        if let userActivity = connectionOptions.userActivities.first {
+            Application.resume(activity: userActivity)
+            principalWindowScene.resume(userActivity)
+        }
+        
+        let URLContexts = connectionOptions.urlContexts
+        if URLContexts.isEmpty == false {
+            principalWindowScene.open(URLContexts: URLContexts)
+        }
+        
         window.installDebugModule()
         window.makeKeyAndVisible()
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        Application.open(URLContexts: URLContexts)
+        principalWindowScene?.open(URLContexts: URLContexts)
     }
     
     func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
-        Application.resume(activity: userActivity)
+        principalWindowScene?.resume(userActivity)
     }
     
 }
