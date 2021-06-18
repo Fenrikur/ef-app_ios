@@ -1,3 +1,4 @@
+import EurofurenceApplicationSession
 import EurofurenceClipLogic
 import UIKit
 

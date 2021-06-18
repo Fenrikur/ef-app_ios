@@ -2,6 +2,7 @@ import ComponentBase
 import ContentController
 import DealersComponent
 import DealersJourney
+import EurofurenceApplicationSession
 import EurofurenceModel
 import EventsJourney
 import ScheduleComponent
